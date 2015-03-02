@@ -525,13 +525,15 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+// changed amount of pizzas from 200 to 45 per my own testing and via discussion on piazza
+  for (var i = 0; i < 45; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizzaOPT.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+// set initial and horizontal pizza positionings per discussion on piazza.
+    elem.style.left = ((i % cols) * s) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
