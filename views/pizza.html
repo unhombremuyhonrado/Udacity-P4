@@ -7,11 +7,6 @@
   -moz-box-sizing: border-box;
   -box-sizing: border-box;
 }
-/*.animClass {
-	-webkit-backface-visibility: hidden;
-	-webkit-perspective: 1000;
-}*/
-
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   background: black;
@@ -30,14 +25,11 @@ form {
   font-weight: 800;
 }
 .mover {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
   position: fixed;
   width: 256px;
   z-index: -1;
-}
-.mover{
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
 }
 .randomPizzaContainer {
   float: left;
