@@ -1,5 +1,64 @@
 ## Website Performance Optimization portfolio project
 
+Here is my submission for Udacity’s Front-End Web Developer Nanodegree. Project 4: Website Optimization.
+ 
+Our objective was to take Cameron’s portfolio [http://unhombremuyhonrado.github.io/Udacity-P4/ ] and optimize it to score above a 90/100 on mobile devices and desktop browsers via Google’s PageSpeed Insights [https://developers.google.com/speed/pagespeed/insights/]
+ 
+This project was particularly challenging, but with the following tweaks I was able to  score a 97/100 on desktop browsers and mobile results to 95/100. I also did A LOT of extra stuff that was COMPLETELY unnecessary. I think I did this, in part, because I was very confused about this until I took the course again. I didn’t feel like starting ALL over (again) so I just went nuts with it.
+ 
+The following steps (most likely NOT in this order) were taken:
+1.       In-lined all CSS and minified BOTH index.html and pizza.html.
+2.       Added media print and minified that sucker.
+3.       Added async to all JavaScript links on index.html and (why not) pizza.html. Also, this wasn’t requested.
+4.       Compressed all images on this page and on pizza.html. I used
+5.       In-lined all CSS on pizza.html (not sure why, as it doesn’t even affect fps).
+6.       Minified the hell out of most css, js and html files.
+7.       Removed a massive-amount of unused css stuff from bootsrap, then I minified it, again.
+8.       Refactored updatePositions function, then added requestAnimation to it
+9.       Improved fps of scroll performance by removing .mover query from function.
+10.      Used translateX trick found in piazza posts.
+
+References: 
+https://developer.chrome.com/devtools/docs/timeline
+https://plus.google.com/events/comnga3cdvrpkjm7dvb4l71ph2o?authkey=CPbhlNSdtpiEDg
+http://addyosmani.com/blog/making-a-site-jank-free/
+http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/ [this one obviously really helped]
+http://css-tricks.com/tale-of-animation-performance/
+http://joshondesign.com/p/books/canvasdeepdive/chapter05.html [KIND OF HELPED]
+http://csstriggers.com/ [This site provides a breakdown of how each css property affects layout, paint and composite.]
+http://benfrain.com/improving-css-performance-fixed-position-elements/
+http://jankfree.org/
+http://davidwalsh.name/translate3d
+http://www.html5rocks.com/en/tutorials/speed/layers/
+http://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/
+https://developer.chrome.com/devtools/docs/rendering-settings
+http://creativejs.com/resources/requestanimationframe/
+http://css-tricks.com/css-media-queries/
+https://developers.google.com/web/fundamentals/layouts/rwd-fundamentals/use-media-queries
+https://imageoptim.com/
+http://www.html5rocks.com/en/tutorials/speed/rendering/#toc-raf [APPLYING RAF]
+http://creativejs.com/resources/requestanimationframe [APPLYING RAF]
+http://www.html5rocks.com/en/tutorials/speed/animations/ [APPLYING RAF]
+http://www.webreference.com/programming/javascript/jkm3/index.html
+
+References for 60fps optimization
+http://davidwalsh.name/translate3d  force hardware acceleration
+https://developer.chrome.com/devtools/docs/rendering-settings
+https://docs.google.com/presentation/d/1CH8ifryioHDLT1Oryyy8amusUmq2FytpCPCpk0G3E4o/edit?pli=1#slide=id.p
+
+http://www.allreadable.com/3d5a6iIO 
+https://www.youtube.com/watch?v=YyQYhhy1dZI
+http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
+
+PIAZZA POSTS FROM:
+11/17/2014
+01/15/2014
+01/09/2014
+Finding better framerate: https://piazza.com/class/i0sf6tsmg0r7do?cid=1017
+
+
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository, inspect the code,
