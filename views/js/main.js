@@ -519,7 +519,7 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var item = items[i];
     var phase = Math.sin(radian + (i % 5));
-    items[i].style.transform = 'translateX(' + (100 * phase) + 'px,0,0)';
+    items[i].style.transform = 'translateX(' + 100 * phase + 'px)';
     
     //removed the following code from above function
     //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
