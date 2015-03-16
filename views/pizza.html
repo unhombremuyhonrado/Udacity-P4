@@ -25,12 +25,21 @@ form {
   font-weight: 800;
 }
 .mover {
+  position: fixed;
+  width: 256px;
+  z-index: -1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/*.mover {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
   position: fixed;
   width: 256px;
   z-index: -1;
-}
+}*/
 .randomPizzaContainer {
   float: left;
   display: flex;
