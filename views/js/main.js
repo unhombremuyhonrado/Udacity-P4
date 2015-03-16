@@ -507,7 +507,6 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 //refactoring of loop in hopes this will improve performance
-  var items = document.querySelectorAll('.mover');
   var radian = document.body.scrollTop/1250;
   var itemsLength = items.length;
   for (var i = 0; i < items.length; i++) {
@@ -550,4 +549,5 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  var items = document.querySelectorAll('.mover');
 });
