@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 // changed amount of pizzas from 200 to 45 per my own testing and via discussion on piazza
 // 15 March 2015 - changed pizza # from 45 to 30 to test fps
-  for (var i = 0; i < 45; i++) {
+  for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizzaOPT.png";
