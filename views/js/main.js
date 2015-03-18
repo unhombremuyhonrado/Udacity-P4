@@ -521,12 +521,12 @@ function requestTick(){
 }
 
 // Moves the sliding background pizzas based on scroll position
+var items = document.querySelectorAll('.mover');
 function updatePositions() {
   var ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
 //refactoring of loop in hopes this will improve performance
-  var items = document.querySelectorAll('.mover');
   var radian = document.body.scrollTop/1250;
   var itemsLength = items.length;
   for (var i = 0; i < items.length; i++) {
