@@ -457,13 +457,13 @@ var resizePizzas = function(size) {
       //document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     // I just greyed the old code out to make sure I was refactoring it correctly. 
     function changePizzaSizes(size){
-      var allPiz = document.querySelectorAll(".randomPizzaContainer");
-      var allPizLen = allPiz.length;
-      var dx = determineDx(allPizz[0]), size);
+      var allPizzas = document.querySelectorAll(".randomPizzaContainer");
+      var allPizzasLength = allPizzas.length;
+      var dx = determineDx(allPizzas[0]), size);
       var newwidth = (allPiz[0]).offsetWidth + dx) + 'px';
-      for(var i = 0; i < allPiz.length; i++){
+      for(var i = 0; i < allPizzas.length; i++){
         
-        allPiz[i].style.width = newwidth;
+        allPizzas[i].style.width = newwidth;
       }
     }
   
