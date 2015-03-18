@@ -519,6 +519,8 @@ function updatePositions() {
     //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
+
+
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -549,4 +551,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  
+  var items = document.querySelectorAll('.mover');
+  
 });
