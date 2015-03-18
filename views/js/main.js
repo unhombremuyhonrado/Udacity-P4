@@ -450,18 +450,25 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // Changed this to provide only the calculation for the first pizza in the object.
-    function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    //function changePizzaSizes(size) {
+    //for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      //document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    // I just greyed the old code out to make sure I was refactoring it correctly. 
+    function changePizzaSizes(size){
+      var allPiz = document.querySelectorAll(".randomPizzaContainer");
+      var allPizLen = allPiz.length;
+      var dx = determineDx(allPizz[0]), size);
+      var newwidth = (allPiz[0]).offsetWidth + dx) + 'px';
+      for(var i = 0; i < allPiz.length; i++){
+        
+        allPiz[i].style.width = newwidth;
+      }
     }
-  }
-
-  changePizzaSizes(size);    
-     
-
-
+  
+ changePizzaSizes(size);    
+    
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
