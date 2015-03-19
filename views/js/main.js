@@ -516,12 +516,12 @@ function requestTick(){
   ticking = true;
 }
 // Moves the sliding background pizzas based on scroll position
-var items = document.querySelectorAll('.mover');
+
 function updatePositions() {
   var ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
-  //var items = document.querySelectorAll('.mover');
+  var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.transform = 'translateX(' + (100*phase) + 'px)';
