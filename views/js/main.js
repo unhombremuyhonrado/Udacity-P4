@@ -512,11 +512,12 @@ function requestTick(){
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-var items = document.querySelectorAll('.mover');
+
 function updatePositions() {
   ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
+  var items = document.querySelectorAll('.mover');
   var radian = document.body.scrollTop/1250;
   var itemsLength = items.length;
   //var items = document.querySelectorAll('.mover');
