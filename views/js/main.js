@@ -517,9 +517,9 @@ function updatePositions() {
   ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
-  var items = document.querySelectorAll('.mover');
+  //var items = document.querySelectorAll('.mover');
   var radian = document.body.scrollTop/1250;
-  var itemsLength = items.length;
+  //var itemsLength = items.length;
   //var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var items = items[i];
@@ -542,6 +542,28 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+  for (var i = 0; i < 45; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizzaOPT.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    //set the initial, horizontal positions of the pizzas as recommended in piazza @1017
+    elem.style.left = ((i % cols) * s) + 'px';
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    document.querySelector("#movingPizzas1").appendChild(elem);
+  }
+items = document.querySelectorAll('.mover');
+numberOfItems = items.length;
+  updatePositions();
+  }
+);
+
+
+/*
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -558,3 +580,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   updatePositions();
 });
+*/
