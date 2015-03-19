@@ -450,19 +450,13 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    
-    /*for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;*/
-      var allPizzas = document.querySelectorAll(".randomPizzaContainer");
-      var allPizzasLength = allPizzas.length;
-      var dx = determineDx(allPizzas[1], size);
-      var newWidth = (allPizzas[1].offsetWidth + dx) + 'px';
-      for(var i = 0; i < allPizzas.length; i++){
-        allPizzas[i].style.width = newWidth;
-      }
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    }
   }
+
   changePizzaSizes(size);
 
   // User Timing API is awesome
@@ -500,32 +494,18 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-
-
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-var ticking = false; 
-function onScroll(){
-  requestTick();
-}
 
-function requestTick(){
-  if(!ticking){
-    requestAnimationFrame(updatePostitions, changePizzaSizes);
-  }
-  ticking = true;
-}
 // Moves the sliding background pizzas based on scroll position
-
 function updatePositions() {
-  var ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
+
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.transform = 'translateX(' + (100*phase) + 'px)';
-    
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -551,8 +531,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    //elem.basicLeft = (i % cols) * s;
-    elem.style.left = ((i % cols) * s) + 'px';
+    elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
