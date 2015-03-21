@@ -458,7 +458,7 @@ var resizePizzas = function(size) {
       var lengthOfAllThePizzas = allThePizzas.length;
       var dx = determineDx(allThePizzas[0], size);
       var newwidth = (allThePizzas[0].offsetWidth + dx) + 'px';
-      for(var i = 0; i < lengthOfAllThePizzas; i++){
+      for(var i = 0; i < allThePizzas.length; i++){
         allThePizzas[i].style.width = newwidth;
       }
 
@@ -518,7 +518,6 @@ function requestTick(){
   ticking = true;
 }
 
-var items = document.querySelectorAll('.mover');
 function updatePositions() {
   ticking = false;
   frame++;
@@ -569,4 +568,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
+  var items = document.querySelectorAll('.mover');
+
 });
