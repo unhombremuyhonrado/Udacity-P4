@@ -517,12 +517,12 @@ function requestTick(){
   }
   ticking = true;
 }
+var items = document.querySelectorAll('.mover');
 
 function updatePositions() {
   ticking = false;
   frame++;
   window.performance("mark_start_frame");
-  //var items = document.querySelectorAll('.mover');
   var radian = document.body.scrollTop / 1250;
   var itemsLength = items.length;
   for (var i = 0; i < itemsLength; i++) {
@@ -568,6 +568,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
-  var items = document.querySelectorAll('.mover');
+  //var items = document.querySelectorAll('.mover');
 
 });
