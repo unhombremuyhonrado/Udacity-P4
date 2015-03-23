@@ -478,8 +478,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-//changed from 100 to 45
-for (var i = 2; i < 45; i++) {
+for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -519,7 +518,7 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var item = items[i]
     var phase = Math.sin(r + (i % 5));
-    items[i].style.transform = 'translateX(' + (100*phase) + 'px)';
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
     
     //the above was changed from : items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
@@ -541,8 +540,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  //changed number of pizzas from 200 to 45
-  for (var i = 0; i < 45; i++) {
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
