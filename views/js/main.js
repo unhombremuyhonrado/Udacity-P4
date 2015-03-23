@@ -508,27 +508,30 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 
+// the following comes from a suggestion from Rennie Bevineau from piazza post on 01/6/15
 
-
-var ticking = false; 
-
+var latestKnownScrollY = 0;
+  ticking = false;
 function onScroll(){
+  latestKnownScrollY = window.scrollY;
   requestTick();
 }
 
 function requestTick(){
   if(!ticking){
-    requestAnimationFrame(updatePositions, changePizzaSizes);
+    requestAnimationFrame(updatePositions);
   }
   ticking = true;
 }
 
 function updatePositions() {
   ticking = false;
+  var currentScrollY = latestKnownScrollY;
+
   frame++;
   window.performance.mark("mark_start_frame");
   //refactored this train-wreck of a loop
-  var items = document.querySelectorAll('.mover');
+var items = document.querySelectorAll('.mover');
   var r = document.body.scrollTop / 1250;
   var itemsLength = items.length;
   
@@ -549,9 +552,10 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
+window.addEventListener('scroll', onScroll,false);
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+//window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
