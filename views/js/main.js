@@ -450,10 +450,13 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    /*for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    
+    /* Removed most of this, and refactored:
+      for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;*/
+      
       var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
       var rpcLength = randomPizzaContainer.length;
       var dx = determineDx(randomPizzaContainer[1], size);
@@ -475,7 +478,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
+//changed from 100 to 45
+for (var i = 2; i < 45; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -507,7 +511,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  
+  //refactored this train-wreck of a loop
   var items = document.querySelectorAll('.mover');
   var r = document.body.scrollTop / 1250;
   var itemsLength = items.length;
@@ -537,14 +541,14 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  
+  //changed number of pizzas from 200 to 45
   for (var i = 0; i < 45; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    //elem.basicLeft = (i % cols) * s;
+    //setting initial horizontal positions of pizzas from piazza post @1017
     elem.style.left = ((i % cols) *s )+'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
