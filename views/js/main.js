@@ -568,6 +568,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
-  //var items = document.querySelectorAll('.mover');
 
 });
