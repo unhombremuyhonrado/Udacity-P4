@@ -514,7 +514,7 @@ function updatePositions() {
   for (var i = 0; i < numberOfItems; i++) {
     //var item = items[i]
     var phase = Math.sin((r) + (i % 5));
-    items[i].style.transform = 'translate3d(' + (100 * phase) + 'px, 0, 0)';
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
     
     //the above was changed from : items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
