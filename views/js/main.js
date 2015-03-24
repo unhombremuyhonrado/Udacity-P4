@@ -452,10 +452,11 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     //Removed most of this, and refactored:      
     var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
-      var rpcLength = randomPizzaContainer.length;
-      var dx = determineDx(randomPizzaContainer[1], size);
-      var newwidth = (randomPizzaContainer[1].offSetWidth + dx) + 'px';
-      for (var i = 0; i < rpcLengh; i++){
+      var randomPizzaContainerLength = randomPizzaContainer.length;
+      var dx = determineDx(randomPizzaContainer[0], size);
+      var newwidth = (randomPizzaContainer[0].offSetWidth + dx) + 'px';
+      for (var i = 0; i < randomPizzaContainer.length; i++){
+
         randomPizzaContainer[i].style.width = newwidth;
     }
   }
@@ -513,7 +514,7 @@ function updatePositions() {
   for (var i = 0; i < numberOfItems; i++) {
     var item = items[i]
     var phase = Math.sin((r) + (i % 5));
-    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
+    items[i].style.transform = 'translate3d(' + (100 * phase) + 'px, 0, 0)';
     
     //the above was changed from : items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
