@@ -512,7 +512,7 @@ function updatePositions() {
   //refactored this train-wreck of a loop
   var r = document.body.scrollTop / 1250;  
   for (var i = 0; i < numberOfItems; i++) {
-    var item = items[i]
+    //var item = items[i]
     var phase = Math.sin((r) + (i % 5));
     items[i].style.transform = 'translate3d(' + (100 * phase) + 'px, 0, 0)';
     
@@ -548,5 +548,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
     items = document.querySelectorAll('.mover');
     numberOfItems = items.length;
-  updatePositions();
+      updatePositions();
 });
