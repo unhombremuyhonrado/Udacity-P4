@@ -509,9 +509,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   //refactored this train-wreck of a loop
-  var r = document.body.scrollTop / 1250;
-  var itemsLength = items.length;
-  
+  var r = document.body.scrollTop / 1250;  
   for (var i = 0; i < numberOfItems; i++) {
     var item = items[i]
     var phase = Math.sin((r) + (i % 5));
