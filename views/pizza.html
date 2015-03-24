@@ -267,9 +267,11 @@ img {
   function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+  /*refactored this train-wreck of a loop, moved .mover to the bottom, finally deleted the 'var' which preceeded it */
   var r = document.body.scrollTop / 1250;  
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((r) + (i % 5));
+    /*var item = items[i] deleted this, b/c I'm not quite sure why it was even there to begin with. */
     items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
     }
   window.performance.mark("mark_end_frame");
