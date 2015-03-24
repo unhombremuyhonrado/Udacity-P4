@@ -509,13 +509,12 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   //refactored this train-wreck of a loop
-  var items = document.querySelectorAll('.mover');
   var r = document.body.scrollTop / 1250;
   var itemsLength = items.length;
   
-  for (var i = 0; i < items.length; i++) {
+  for (var i = 0; i < numberOfItems; i++) {
     var item = items[i]
-    var phase = Math.sin(r + (i % 5));
+    var phase = Math.sin((r) + (i % 5));
     items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
     
     //the above was changed from : items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
@@ -548,5 +547,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+    items = document.querySelectorAll('.mover');
+    numberOfItems = items.length;
   updatePositions();
 });
