@@ -505,14 +505,14 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // the following comes from a suggestion from Rennie Bevineau from piazza post on 01/6/15
 
-
+/*
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  //refactored this train-wreck of a loop
+  //refactored this train-wreck of a loop, moved .mover to the bottom, finally deleted the 'var' which preceeded it
   var r = document.body.scrollTop / 1250;  
   for (var i = 0; i < numberOfItems; i++) {
-    //var item = items[i]
+    //var item = items[i] deleted this, b/c I'm not quite sure why it was even there to begin with. 
     var phase = Math.sin((r) + (i % 5));
     items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
     
@@ -546,7 +546,9 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  //I tested putting .mover EVERYWHERE and couldn't figure it out, then I deleted the var that preceded it. D'oh!
     items = document.querySelectorAll('.mover');
     numberOfItems = items.length;
       updatePositions();
 });
+*/

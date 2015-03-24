@@ -261,7 +261,43 @@ img {
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/main.js" async></script>
+  <script type = "text/javascript">
+  function updatePositions() {
+  frame++;
+  window.performance.mark("mark_start_frame");
+  var r = document.body.scrollTop / 1250;  
+  for (var i = 0; i < numberOfItems; i++) {
+    var phase = Math.sin((r) + (i % 5));
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
+    }
+  window.performance.mark("mark_end_frame");
+  window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
+  if (frame % 10 === 0) {
+    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+    logAverageFrame(timesToUpdatePosition);
+  }
+}
+window.addEventListener('scroll', updatePositions);
+
+document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+  for (var i = 0; i < 45; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.style.left = ((i % cols) *s )+'px';
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    document.querySelector("#movingPizzas1").appendChild(elem);
+  }
+    items = document.querySelectorAll('.mover');
+    numberOfItems = items.length;
+      updatePositions();
+});</script>
+
 </body>
 
 </html>
